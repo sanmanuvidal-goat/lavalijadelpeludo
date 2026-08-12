@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/logo3.png">
+    <title>La Valija del Peludo | Tienda de Mascotas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- HEADER / NAV -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo-link">
+                <img src="assets/logo3.png" alt="Logo La Valija del Peludo" class="logo-img">
+            </a>
+            <!-- Botón de Carrito Dinámico -->
+            <button id="cart-btn" class="header-cart-btn" aria-label="Ver carrito">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-badge" class="cart-badge">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Accesorios y soluciones para tus mejores amigos</h2>
+            <p>Productos pensados para el bienestar de tus mascotas y la comodidad de tu hogar.</p>
+            <a href="#catalogo" class="btn-primary">Ver Catálogo Completo</a>
+        </div>
+    </section>
+
+    <!-- BARRA DE BENEFICIOS (Flexbox) -->
+    <section class="benefits-bar">
+        <div class="benefit-item">
+            <span class="benefit-icon">🏠</span>
+            <div class="benefit-text">
+                <h3>Retiro Sin Costo</h3>
+                <p>Coordiná por casa gratis</p>
+            </div>
+        </div>
+        <div class="benefit-item">
+            <span class="benefit-icon">📍</span>
+            <div class="benefit-text">
+                <h3>Envíos por la Zona</h3>
+                <p>Envíos desde $1.000 | <a href="#calculadora-zona" class="link-calc">Calcular Envío</a></p>
+            </div>
+        </div>
+        <div class="benefit-item">
+            <span class="benefit-icon">💳</span>
+            <div class="benefit-text">
+                <h3>Medios de Pago</h3>
+                <p>Transferencia o Mercado Pago</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATÁLOGO PRINCIPAL (Grid) -->
+    <main id="catalogo" class="catalog-container">
+        <h2 class="section-title">Nuestros Productos y Promos</h2>
+
+        <div class="filter-container">
+            <button class="btn-filter active" data-filter="todos">Todos</button>
+            <button class="btn-filter" data-filter="perros">Perros</button>
+            <button class="btn-filter" data-filter="gatos">Gatos</button>
+        </div>
+        
+        <div class="products-grid">
+            
+            <!-- PROMO 1: Combo Anti-Pelos Max -->
+            <article class="product-card combo" data-category="perros gatos">
+    <div class="product-image-container">
+        <img src="assets/guante-rodillo1.jpg" alt="Combo Anti-Pelos Max">
+        <img src="assets/guante-rodillo2.jpg" alt="Combo Anti-Pelos Max uso" class="img-hover">
+        <span class="product-tag">Ahorrás $1.100</span>
+    </div>
+    
+    <div class="product-info">
+        <h3 class="product-title">Combo Anti-Pelos</h3> 
+        <p class="product-desc">Llevate el Guante Saca Pelos + Rodillo extractor para dejar sillones y ropa impecables.</p>
+        
+        <div class="product-price-row">
+            <div class="price-wrapper">
+                <del class="price-old">$13.000</del>
+                <span class="price">$11.900</span>
+            </div>
+            <button class="btn-buy btn-add-cart" data-name="Combo Anti-Pelos Max" data-price="11900">Agregar</button>
+        </div>
+    </div>
+</article>
+
+            <!-- PROMO 2: Combo Perro Feliz -->
+<article class="product-card combo" data-category="perros">
+    <div class="product-image-container">
+        <img src="assets/guante-dental1.jpg" alt="Combo Anti-Pelos Max">
+        <img src="assets/guante-dental2.jpg" alt="Combo Anti-Pelos Max uso" class="img-hover">
+        <span class="product-tag">Ahorrás $1.430</span>
+    </div>
+    
+    <div class="product-info">
+        <h3 class="product-title">Combo Perro Feliz</h3> 
+        <p class="product-desc">Higiene y juego garantizado. Incluye el Guante Saca Pelos + Pelota Dental.</p>
+        
+        <div class="product-price-row">
+            <div class="price-wrapper">
+                <del class="price-old">$13.320</del>
+                <span class="price">$11.890</span>
+            </div>
+            <button class="btn-buy btn-add-cart" data-name="Combo Perro Feliz" data-price="11.890">Agregar</button>
+        </div>
+    </div>
+</article>
+
+<!-- PROMO : Combo Perro Feliz 2 -->
+<article class="product-card combo" data-category="perros">
+    <div class="product-image-container">
+        <img src="assets/NUEVOtenis1.jpeg" alt="Combo Anti-Pelos Max">
+        <img src="assets/NUEVOtenis2.jpeg" alt="Combo Anti-Pelos Max uso" class="img-hover">
+        <span class="product-tag">Ahorrás $1.400</span>
+    </div>
+    
+    <div class="product-info">
+        <h3 class="product-title">Combo Perro Feliz 2</h3> 
+        <p class="product-desc">Higiene y juego garantizado. Incluye el Guante Saca Pelos + Pelota Dental.</p>
+        
+        <div class="product-price-row">
+            <div class="price-wrapper">
+                <del class="price-old">$11.650</del>
+                <span class="price">$9.990</span>
+            </div>
+            <button class="btn-buy btn-add-cart" data-name="Combo Perro Feliz 2" data-price="9.990">Agregar</button>
+        </div>
+    </div>
+</article>
+
+<!-- PROMO 3: Combo Michi Activo -->
+<article class="product-card combo" data-category="gatos">
+    <div class="product-image-container">
+        <img src="assets/interactiva-laser1.jpg" alt="Combo Anti-Pelos Max">
+        <img src="assets/interactiva-laser2.jpg" alt="Combo Anti-Pelos Max uso" class="img-hover">
+        <span class="product-tag">Ahorrás $880</span>
+    </div>
+    
+    <div class="product-info">
+        <h3 class="product-title">Combo Michi Activo</h3> 
+        <p class="product-desc">Entretenimiento puro. Incluye Puntero Láser + Pelota Interactiva.</p>
+        
+        <div class="product-price-row">
+            <div class="price-wrapper">
+                <del class="price-old">$11.370</del>
+                <span class="price">$10.490</span>
+            </div>
+            <button class="btn-buy btn-add-cart" data-name="Combo Michi Activo" data-price="10.490">Agregar</button>
+        </div>
+    </div>
+</article>
+
+<!-- PROMO 4: Super Combo Peludo -->
+<article class="product-card combo" data-category="gatos">
+    <div class="product-image-container">
+        <img src="assets/guante-interactiva1.jpg" alt="Combo Anti-Pelos Max">
+        <img src="assets/guante-interactiva2.jpg" alt="Combo Anti-Pelos Max uso" class="img-hover">
+        <span class="product-tag">Ahorrás $1.890</span>
+    </div>
+    
+    <div class="product-info">
+        <h3 class="product-title">Super Combo Felino</h3> 
+        <p class="product-desc">Ideal para felinos: Pelota Interactiva + Guante Saca Pelos.</p>
+        
+        <div class="product-price-row">
+            <div class="price-wrapper">
+                <del class="price-old">$15.880</del>
+                <span class="price">$13.990</span>
+            </div>
+            <button class="btn-buy btn-add-cart" data-name="Super Combo Felino" data-price="13.990">Agregar</button>
+        </div>
+    </div>
+</article>
+
+<!-- PROMO 5: Kit Casa Limpia -->
+<article class="product-card combo" data-category="perros gatos">
+    <div class="product-image-container">
+        <img src="assets/rodillo-repuestos1.jpg" alt="Combo Anti-Pelos Max">
+        <img src="assets/rodillo-repuestos2.jpg" alt="Combo Anti-Pelos Max uso" class="img-hover">
+        <span class="product-tag">Ahorrás $800</span>
+    </div>
+    
+    <div class="product-info">
+        <h3 class="product-title">Kit Casa Limpia</h3> 
+        <p class="product-desc">Todo lo que necesitas para mantener la limpieza: Rodillo + 2 Repuestos.</p>
+        
+        <div class="product-price-row">
+            <div class="price-wrapper">
+                <del class="price-old">$9.390</del>
+                <span class="price">$8.590</span>
+            </div>
+            <button class="btn-buy btn-add-cart" data-name="Kit Casa Limpia" data-price="8.590">Agregar</button>
+        </div>
+    </div>
+</article>
+
+<!-- PROMO 6: Doble Diversión Felina -->
+<article class="product-card combo" data-category="gatos">
+    <div class="product-image-container">
+        <img src="assets/2laser.jpg" alt="Combo Anti-Pelos Max">
+        <img src="assets/2laser.jpg" alt="Combo Anti-Pelos Max uso" class="img-hover">
+        <span class="product-tag btn-special">Llevá 2x$5.990</span>
+    </div>
+    
+    <div class="product-info">
+        <h3 class="product-title">Doble Diversión Felina</h3> 
+        <p class="product-desc">Llevate dos Punteros Láser para gatos. Entretenimiento asegurado.</p>
+        
+        <div class="product-price-row">
+            <div class="price-wrapper">
+                <del class="price-old">$7.000</del>
+                <span class="price">$5.990</span>
+            </div>
+            <button class="btn-buy btn-add-cart" data-name="Doble Diversión Felina" data-price="5.990">Agregar</button>
+        </div>
+    </div>
+</article>
+
+<!-- PROMO 7: Pack Ahorro Bolsitas -->
+<article class="product-card combo" data-category="perros">
+    <div class="product-image-container">
+        <img src="assets/bolsitas6.jpg" alt="Combo Anti-Pelos Max">
+        <img src="assets/bolsitas6.jpg" alt="Combo Anti-Pelos Max uso" class="img-hover">
+        <span class="product-tag">Ahorrás $1.710</span>
+    </div>
+    
+    <div class="product-info">
+        <h3 class="product-title">Pack Ahorro Bolsitas</h3> 
+        <p class="product-desc">Abastecimiento completo. Contiene 6 rollos higiénicos individuales.</p>
+        
+        <div class="product-price-row">
+            <div class="price-wrapper">
+                <del class="price-old">$7.200</del>
+                <span class="price">$5.490</span>
+            </div>
+            <button class="btn-buy btn-add-cart" data-name="Pack Ahorro Bolsitas" data-price="5.490">Agregar</button>
+        </div>
+    </div>
+</article>
+
+<!-- PRODUCTO INDIVIDUAL: Guante Saca Pelos (Sin Tag) -->
+<article class="product-card" data-category="perros gatos">
+    <div class="product-image-container">
+        <img src="assets/guante1.jpg" alt="Combo Anti-Pelos Max">
+        <img src="assets/guante2.jpg" alt="Combo Anti-Pelos Max uso" class="img-hover">
+    </div>
+    
+    <div class="product-info">
+        <h3 class="product-title">Guante Saca Pelos</h3> 
+        <p class="product-desc">Remueve los pelos sueltos de manera dócil mientras acariciás a tu mascota.</p>
+        
+        <div class="product-price-row">
+            <div class="price-wrapper">
+                <span class="price">$7.990</span>
+            </div>
+            <button class="btn-buy btn-add-cart" data-name="Guante Saca Pelos" data-price="7.990">Agregar</button>
+        </div>
+    </div>
+</article>
+
+<!-- PRODUCTO INDIVIDUAL: Pelota Interactiva (Sin Tag) -->
+<article class="product-card" data-category="gatos">
+    <div class="product-image-container">
+        <img src="assets/interactiva1.jpg" alt="Combo Anti-Pelos Max">
+        <img src="assets/interactiva2.jpg" alt="Combo Anti-Pelos Max uso" class="img-hover">
+    </div>
+    
+    <div class="product-info">
+        <h3 class="product-title">Pelota Interactiva</h3> 
+        <p class="product-desc">Pelota inteligente para felinos. Diversión asegurada para tu michi.</p>
+        
+        <div class="product-price-row">
+            <div class="price-wrapper">
+                <span class="price">$7.890</span>
+            </div>
+            <button class="btn-buy btn-add-cart" data-name="Pelota Interactiva" data-price="7.890">Agregar</button>
+        </div>
+    </div>
+</article>
+
+<!-- PRODUCTO INDIVIDUAL: Rodillo Saca Pelos (Sin Tag) -->
+<article class="product-card" data-category="perros gatos">
+    <div class="product-image-container">
+        <img src="assets/rodillo.jpg" alt="Combo Anti-Pelos Max">
+        <img src="assets/rodillo.jpg" alt="Combo Anti-Pelos Max uso" class="img-hover">
+    </div>
+    
+    <div class="product-info">
+        <h3 class="product-title">Rodillo Saca Pelos</h3> 
+        <p class="product-desc">Removedor de pelusas y pelos de mascota reutilizable para tapizados y ropa.</p>
+        
+        <div class="product-price-row">
+            <div class="price-wrapper">
+                <span class="price">$4.990</span>
+            </div>
+            <button class="btn-buy btn-add-cart" data-name="Rodillo Saca Pelos" data-price="4990">Agregar</button>
+        </div>
+    </div>
+</article>
+
+<!-- PRODUCTO INDIVIDUAL: Repuesto Rodillo (Mantiene Tag Recompra) -->
+<article class="product-card" data-category="perros gatos">
+    <div class="product-image-container">
+        <img src="assets/2repuestos1.jpg" alt="Combo Anti-Pelos Max">
+        <img src="assets/2repuestos2.jpg" alt="Combo Anti-Pelos Max uso" class="img-hover">
+        <span class="product-tag badge-recompra">Recompra</span>
+    </div>
+    
+    <div class="product-info">
+        <h3 class="product-title">Repuestos para Rodillo</h3> 
+        <p class="product-desc">Mantenedores del rodillo saca pelos. <strong class="inner-promo">¡$4.390 llevando 2 unidades!</strong></p>
+        
+        <div class="product-price-row">
+            <div class="price-wrapper">
+                <span class="price">$2.500 <small class="unit-text">c/u</small></span>
+            </div>
+            <button class="btn-buy btn-add-cart" data-name="Repuestos para Rodillo" data-price="2500">Agregar</button>
+        </div>
+    </div>
+</article>
+
+<!-- PRODUCTO INDIVIDUAL: Pelota Dental (Sin Tag) -->
+<article class="product-card" data-category="perros">
+    <div class="product-image-container">
+        <img src="assets/dental1.jpg" alt="Combo Anti-Pelos Max">
+        <img src="assets/dental2.jpg" alt="Combo Anti-Pelos Max uso" class="img-hover">
+    </div>
+    
+    <div class="product-info">
+        <h3 class="product-title">Pelota Dental (Mediana)</h3> 
+        <p class="product-desc">Pelota resistente para perros medianos y chicos. Ideal para oler y morder. </p>
+        
+        <div class="product-price-row">
+            <div class="price-wrapper">
+                <span class="price">$5.320</span>
+            </div>
+            <button class="btn-buy btn-add-cart" data-name="Pelota Dental" data-price="5320">Agregar</button>
+        </div>
+    </div>
+</article>
+
+<!-- PRODUCTO INDIVIDUAL: Puntero Láser (Sin Tag) -->
+<article class="product-card" data-category="gatos">
+    <div class="product-image-container">
+        <img src="assets/laser.jpg" alt="Combo Anti-Pelos Max">
+        <img src="assets/laser.jpg" alt="Combo Anti-Pelos Max uso" class="img-hover">
+    </div>
+    
+    <div class="product-info">
+        <h3 class="product-title">Puntero Láser</h3> 
+        <p class="product-desc">Juguete clásico de estimulación visual activa para gatos. Incluye baterías.</p>
+        
+        <div class="product-price-row">
+            <div class="price-wrapper">
+                <span class="price">$3.480</span>
+            </div>
+            <button class="btn-buy btn-add-cart" data-name="Puntero Láser" data-price="3480">Agregar</button>
+        </div>
+    </div>
+</article>
+
+<!-- PRODUCTO INDIVIDUAL: Bolsitas Higiénicas (Sin Tag) -->
+<article class="product-card" data-category="perros">
+    <div class="product-image-container">
+        <img src="assets/bolsitas.jpg" alt="Combo Anti-Pelos Max">
+        <img src="assets/bolsitas.jpg" alt="Combo Anti-Pelos Max uso" class="img-hover">
+    </div>
+    
+    <div class="product-info">
+        <h3 class="product-title">Bolsitas Higiénicas</h3> 
+        <p class="product-desc">Rollos de bolsitas resistentes para la recolección de residuos.</p>
+        
+        <div class="product-price-row">
+            <div class="price-wrapper">
+                <span class="price">$1.200 <small class="unit-text">c/u</small></span>
+            </div>
+            <button class="btn-buy btn-add-cart" data-name="Bolsitas Higiénicas" data-price="1200">Agregar</button>
+        </div>
+    </div>
+</article>
+
+        </div>
+        <!-- SECCIÓN LOGÍSTICA DINÁMICA -->
+        <div id="calculadora-zona" class="shipping-calculator">
+        <h3>¿Cuánto sale el envío a tu zona?</h3>
+        <p>Seleccioná tu ubicación para conocer las tarifas y beneficios de envío:</p>
+        <div class="calc-box">
+            <select id="zone-select" class="select-shipping">
+                <option value="" disabled selected>Seleccioná tu zona...</option>
+                <option value="centro">Zona Centro / Alrededores ($1.000 - $1.500)</option>
+                <option value="intermedias">Otras Zonas ($1.500 - $2.500)</option>
+                <option value="patagonia">Barrio Patagonia / Afueras</option>
+            </select>
+            <div id="shipping-result" class="shipping-result-text"></div>
+        </div>
+    </div>
+        </div>
+    </main>
+
+    <script src="scripts.js"></script>
+    <footer class="main-footer">
+        <div class="footer-container">
+            
+            <!-- Columna 1: Marca -->
+            <div class="footer-col">
+                <h3 class="footer-brand">La Valija del Peludo</h3>
+                <p class="footer-text"><strong>Parte de sus mejores recuerdos.</strong></p>
+                <p class="footer-location">📍 Bahía Blanca</p>
+            </div>
+
+            <!-- Columna 2: Redes Sociales -->
+            <div class="footer-col text-center">
+                <h3>¡Seguinos y Charlemos!</h3>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/lavalijadelpeludo" target="_blank" class="social-icon instagram" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/5492914120752" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna 3: Enlaces de Ayuda -->
+            <div class="footer-col">
+                <h3>Ayuda</h3>
+                <ul class="footer-links">
+                    <li><a href="#catalogo">🔥 Ver Promos</a></li>
+                    <li><a href="#calculadora-zona">📦 Tiempos de envío y retiros</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Barra inferior de Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 La Valija del Peludo. Todos los derechos reservados.</p>
+            <a href="#" class="scroll-top">Volver arriba ↑</a>
+        </div>
+    </footer>
+    <!-- CARRITO LATERAL (DRAWER) -->
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3>Tu Pedido</h3>
+            <button id="close-cart" class="close-cart-btn">&times;</button>
+        </div>
+        
+        <!-- Lista de productos agregados -->
+        <div id="cart-items-container" class="cart-items-body">
+            <!-- Se rellena dinámicamente con JS -->
+            <p class="empty-cart-msg">Tu carrito está vacío.</p>
+        </div>
+        
+        <!-- Resumen y botón de envío -->
+        <div class="cart-drawer-footer">
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span id="cart-total-price">$0</span>
+            </div>
+            <p class="cart-shipping-notice">El costo de envío se coordina según tu zona.</p>
+            <button id="checkout-btn" class="btn-checkout">
+                <a id="checkout-btn" class="btn-checkout" href="https://wa.me/5492914120752?text=¡Hola!%20Quiero%20realizar%20un%20pedido" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+    <span>Enviar Pedido por WhatsApp</span>
+</a>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Fondo oscuro detrás del carrito cuando está abierto -->
+    <div id="cart-overlay" class="cart-overlay"></div>
+</body>
+</html>

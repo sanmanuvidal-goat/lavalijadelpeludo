@@ -1,0 +1,962 @@
+/* VARIABLES DE DISEÑO (Basado en el logo) */
+:root {
+    --bg-crema: #F7F2DE; /* El color exacto extraído de tu imagen */
+    --verde-logo: #5B6B43;
+    --marron-valija: #8B5A2B;
+    --texto-oscuro: #2F3625;
+    --blanco: #ffffff;
+    --font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-crema);
+    color: var(--texto-oscuro);
+    font-family: var(--font-base);
+    line-height: 1.6;
+}
+
+/* HEADER (Fusionado con el nuevo color exacto) */
+.main-header {
+    background-color: var(--bg-crema);
+    padding: 1rem 2rem; 
+    position: sticky;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO LIBRE (Sin forzar el círculo por código para que respire mejor) */
+.logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 135px;  /* Ajustalo entre 130 y 150 según tu gusto */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.03);
+}
+
+.logo-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+.logo-text {
+    color: var(--verde-logo);
+    font-size: 1.5rem;
+}
+
+
+
+/* ENLACE DE PRODUCTOS */
+.nav-link {
+    color: var(--verde-logo);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--marron-valija);
+    border-bottom: 2px solid var(--marron-valija);
+}
+
+/* NUEVA SECCIÓN DE FILTROS SOBRE EL CATÁLOGO */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem; /* Separación con la grilla de productos */
+}
+
+.btn-filter {
+    background: none;
+    border: 2px solid var(--verde-logo); /* Un poquito más grueso para resaltar en el fondo crema */
+    color: var(--verde-logo);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-filter.active, .btn-filter:hover {
+    background-color: var(--verde-logo);
+    color: var(--bg-crema);
+}
+
+
+
+.filter-nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+
+
+/* HERO SECTION */
+.hero {
+    padding: 2.5rem 1rem; /* Reducimos el padding exagerado de 4rem */
+    text-align: center;
+    background: var(--bg-crema);
+}
+
+.hero h2 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem); /* Se adapta fluido según la pantalla */
+    color: var(--texto-oscuro);
+    margin-bottom: 0.8rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--verde-logo);
+    color: var(--bg-crema);
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--texto-oscuro);
+}
+
+/* BARRA DE BENEFICIOS (Flexbox) */
+.benefits-bar {
+    max-width: 1100px;
+    margin: -1.5rem auto 3rem auto;
+    background-color: var(--blanco);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    min-width: 250px;
+}
+
+.benefit-icon {
+    font-size: 2rem;
+}
+
+.benefit-text h3 {
+    font-size: 1rem;
+    color: var(--texto-oscuro);
+}
+
+.benefit-text p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* CATÁLOGO (Grid) */
+.catalog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--verde-logo);
+}
+
+.products-grid {
+    display: grid;
+    /* En PC entran 3 o 4 por fila, en cel se acomodan prolijas sin apretarse */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 0.5rem;
+}
+
+/* TARJETAS DE PRODUCTO */
+.product-card {
+    background-color: var(--blanco); 
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card.combo {
+    background-color: #FAF6ED; 
+    border: 2px solid var(--marron-valija); 
+}
+
+/* CONTENEDOR DE IMAGEN (Cuadrado perfecto idéntico a las referencias) */
+.product-image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Esto obliga a que sea un cuadrado perfecto */
+    position: relative;
+    box-sizing: border-box;
+    background-color: #e5e2d9; 
+    overflow: hidden; /* Corta lo que sobresalga de la foto vertical */
+}
+
+/* FOTO CUADRADA (Llena el 100% sin dejar espacios en blanco) */
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Estira y recorta los bordes superior/inferior sin deformar */
+    object-position: center; /* Enfoca directo al medio donde están tus productos */
+    display: block;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.product-image-container img.img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none; /* Permite clickear la tarjeta sin interferencias */
+}
+
+.product-card:hover .product-image-container img.img-main {
+    opacity: 0; /* La principal se desvanece */
+}
+
+.product-card:hover .product-image-container img.img-hover {
+    opacity: 1; /* La secundaria aparece de forma fluida */
+    transform: scale(1.03); /* Un suave zoom que le da más vida */
+}
+
+/* CARTELITO FLOTANTE */
+.product-image-container .product-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    margin: 0;
+    z-index: 5;
+    background-color: var(--marron-valija);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* TEXTOS INTERNOS CON ESPACIADO COMPACTO */
+.product-card h3.product-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: var(--texto-oscuro);
+}
+
+.product-card .product-desc {
+    padding: 0 15px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* FILA INFERIOR DE PRECIO Y BOTÓN */
+.product-price-row {
+    padding: 0 15px 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+/* ELEMENTOS AUXILIARES Y PLACEHOLDERS */
+.product-image-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Sincronizamos las tarjetas guía para que sean cuadradas también */
+    background-color: #eae6dc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+}
+
+.product-card.combo .product-image-placeholder {
+    background-color: #E6DFCE; 
+}
+
+.product-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* ESTADO DE FILTRADO */
+.product-card.card-hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    display: none; 
+}
+
+.badge {
+    align-self: flex-start;
+    background-color: var(--verde-logo);
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.badge-combo {
+    align-self: flex-start;
+    background-color: var(--marron-valija);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px; /* Redondeado amigable */
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 6px rgba(139, 90, 43, 0.15);
+}
+
+.badge-recompra {
+    align-self: flex-start;
+    background-color: #7E8575; /* Un gris oliva muy neutro */
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+}
+
+.badge-combo.btn-special {
+    background-color: var(--verde-logo);
+    box-shadow: 0 2px 6px rgba(91, 107, 67, 0.15);
+}
+
+
+/* NUEVA TIPOGRAFÍA INTERNA PARA OFERTAS COMPRIMIDAS */
+.inner-promo {
+    color: var(--marron-valija);
+    display: block;
+    margin-top: 0.3rem;
+}
+
+/* ENVOLTORIO DE PRECIOS CON TACHADO */
+.price-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.price-old {
+    font-size: 0.95rem;
+    color: #999;
+    text-decoration: line-through;
+    line-height: 1;
+    margin-bottom: 0.2rem;
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--texto-oscuro);
+    line-height: 1;
+}
+
+.unit-text {
+    font-size: 0.8rem;
+    color: #777;
+    font-weight: normal;
+}
+
+.btn-buy {
+    background-color: var(--verde-logo);
+    color: var(--bg-crema);
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.btn-buy:hover {
+    background-color: var(--marron-valija);
+}
+
+
+/* CALCULADORA DE ENVÍOS STYLES */
+.shipping-calculator {
+    max-width: 600px;
+    margin: 4rem auto 1rem auto;
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+.shipping-calculator.highlight-flash {
+    background-color: #EBF0E6; /* Un verde muy suave derivado de tu paleta */
+    transform: scale(1.03); /* Leve estiramiento para llamar la atención */
+    box-shadow: 0 12px 30px rgba(91, 107, 67, 0.2); /* Sombra intensa con el tono de tu verde */
+}
+
+.shipping-calculator h3 {
+    color: var(--verde-logo);
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.shipping-calculator p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.calc-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.select-shipping {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--verde-logo);
+    border-radius: 8px;
+    background-color: var(--bg-crema);
+    color: var(--texto-oscuro);
+    font-family: var(--font-base);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.shipping-result-text {
+    width: 100%;
+    max-width: 450px;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    background-color: rgba(91, 107, 67, 0.08); /* Verde logo con opacidad suave */
+    border-left: 4px solid var(--verde-logo);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    text-align: left;
+    line-height: 1.5;
+    display: none; /* Se activa por JS */
+}
+
+/* Estilo para el enlace calculador dentro de la barra */
+.link-calc {
+    color: var(--marron-valija);
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 1px dashed var(--marron-valija);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.link-calc:hover {
+    color: var(--verde-logo);
+    border-bottom: 1px solid var(--verde-logo);
+}
+
+/* Efecto de scroll suave para toda la página */
+html {
+    scroll-behavior: smooth;
+}
+
+/* FOOTER PRINCIPAL */
+.main-footer {
+    background-color: #EDE7DC; /* Un tono crema un poquito más oscuro para dar profundidad al cierre */
+    color: var(--texto-oscuro);
+    padding: 3rem 2rem 1rem 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-col h3 {
+    font-size: 1.2rem;
+    color: var(--verde-logo);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.footer-brand {
+    font-style: italic; /* Imitando el estilo de la imagen de referencia */
+}
+
+.footer-text {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.8rem;
+    max-width: 320px;
+}
+
+.footer-location {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--texto-oscuro);
+}
+
+/* Redes Sociales Iconos */
+.text-center {
+    text-align: center;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.social-icon {
+    font-size: 2.2rem;
+    color: var(--texto-oscuro);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Colores de marca al pasar el mouse */
+.social-icon.instagram:hover {
+    color: #E1306C; 
+}
+
+.social-icon.whatsapp:hover {
+    color: #25D366;
+}
+
+/* Enlaces de Ayuda */
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+    color: var(--texto-oscuro);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--marron-valija);
+}
+
+/* Barra de abajo */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 2.5rem auto 0 auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.scroll-top {
+    color: var(--texto-oscuro);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.scroll-top:hover {
+    color: var(--verde-logo);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-text {
+        margin: 0 auto 0.8rem auto;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* RESPONSIVE PARA MOSTRAR 2 COLUMNAS EN CELULARES */
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* Fuerza exactamente 2 columnas */
+        gap: 10px; /* Reduce el espacio entre tarjetas */
+        padding: 5px; /* Aprovecha al máximo los bordes de la pantalla */
+    }
+
+    .product-info {
+        padding: 0.8rem; /* Achica el relleno interno para ganar espacio útil */
+    }
+
+    .product-price-row {
+        flex-direction: column; /* Apila el precio arriba y el botón abajo */
+        align-items: stretch; /* Permite que el botón se estire */
+        gap: 10px; /* Separación entre el precio y el botón */
+        padding: 0 0.8rem 0.8rem 0.8rem;
+    }
+
+    .product-card h3.product-title {
+        font-size: 0.95rem; /* Título un toque más compacto */
+        margin-bottom: 4px;
+    }
+
+    .product-card .product-desc {
+        font-size: 0.78rem; /* Descripción legible pero adaptada al espacio */
+        padding: 0;
+        margin-bottom: 6px;
+    }
+
+    .price {
+        font-size: 1.1rem; /* Precio proporcional a la tarjeta */
+    }
+
+    .price-wrapper {
+        align-items: flex-start; 
+    }
+
+    .price-old {
+        font-size: 0.75rem;
+    }
+
+    .btn-buy {
+        width: 100%; 
+        padding: 0.5rem; 
+        font-size: 0.85rem;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .product-image-container .product-tag {
+        top: 8px;
+        left: 8px;
+        font-size: 0.65rem;
+        padding: 0.15rem 0.5rem;
+    }
+
+    /* Título más chico y compacto */
+    .product-card h3.product-title {
+        font-size: 0.85rem; 
+        line-height: 1.15; /* Achica el espacio entre renglones del título */
+        margin-bottom: 4px;
+    }
+
+    /* Descripción más chica y limitada a 3 renglones */
+    .product-card .product-desc {
+        font-size: 0.75rem; 
+        line-height: 1.2; /* Achica el espacio entre renglones de la descripción */
+        margin-bottom: 8px;
+        padding: 0;
+        
+    
+    }
+}
+
+
+.header-cart-btn {
+    background: none;
+    border: none;
+    position: relative;
+    font-size: 1.5rem;
+    color: var(--verde-logo);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.header-cart-btn:hover {
+    transform: scale(1.1);
+    color: var(--marron-valija);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -2px;
+    right: -5px;
+    background-color: var(--marron-valija);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* PANEL LATERAL DEL CARRITO (DRAWER) */
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Oculto por defecto */
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background-color: var(--blanco);
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cart-drawer.open {
+    right: 0; /* Desliza hacia adentro */
+}
+
+/* Fondo oscuro translúcido */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.cart-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Estructura del Drawer */
+.cart-drawer-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-crema);
+}
+
+.cart-drawer-header h3 {
+    color: var(--texto-oscuro);
+    font-size: 1.3rem;
+}
+
+.close-cart-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s;
+}
+
+.close-cart-btn:hover {
+    color: var(--marron-valija);
+}
+
+/* Cuerpo del Carrito */
+.cart-items-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+}
+
+.empty-cart-msg {
+    text-align: center;
+    color: #888;
+    margin-top: 3rem;
+    font-size: 1rem;
+}
+
+/* Filas de productos en el carrito */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.cart-item-details {
+    flex-grow: 1;
+    padding-right: 1rem;
+}
+
+.cart-item-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--texto-oscuro);
+}
+
+.cart-item-price {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Controles de cantidad */
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.btn-qty {
+    background-color: var(--bg-crema);
+    border: 1px solid rgba(0,0,0,0.1);
+    color: var(--texto-oscuro);
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.btn-qty:hover {
+    background-color: #E6DFCE;
+}
+
+.qty-number {
+    font-size: 0.95rem;
+    font-weight: 600;
+    min-width: 15px;
+    text-align: center;
+}
+
+.btn-remove-item {
+    background: none;
+    border: none;
+    color: #cc0000;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-left: 0.5rem;
+    padding: 0.2rem;
+    transition: transform 0.2s;
+}
+
+.btn-remove-item:hover {
+    transform: scale(1.1);
+}
+
+/* Pie de página del carrito */
+.cart-drawer-footer {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: var(--bg-crema);
+}
+
+.cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--texto-oscuro);
+    margin-bottom: 0.5rem;
+}
+
+.cart-shipping-notice {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.btn-checkout {
+    width: 100%;
+    background-color: #25D366; /* Verde WhatsApp */
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+    transition: background-color 0.2s, transform 0.2s;
+    
+    text-decoration: none; /* 🔥 Esta línea evita el subrayado del enlace */
+}
+
+.btn-checkout:hover {
+    background-color: #1ebd59;
+    transform: translateY(-2px);
+}
