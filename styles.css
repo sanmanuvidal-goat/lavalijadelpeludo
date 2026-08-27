@@ -283,6 +283,21 @@ body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
+.product-image-container .product-tagi {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    margin: 0;
+    z-index: 5;
+    background-color: var(--verde-logo);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
 /* TEXTOS INTERNOS CON ESPACIADO COMPACTO */
 .product-card h3.product-title {
     font-size: 1.2rem;
