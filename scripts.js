@@ -214,6 +214,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const sizeSelectors = document.querySelectorAll('.product-card .size-selector');
+
+    sizeSelectors.forEach(selector => {
+        const buttons = selector.querySelectorAll('.size-btn');
+        const card = selector.closest('.product-card');
+        const priceDisplay = card.querySelector('.price');
+        const buyButton = card.querySelector('.btn-buy');
+        const baseTitle = card.querySelector('.product-title').innerText;
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 1. Le sacamos la clase "active" a todos los botones
+                buttons.forEach(b => b.classList.remove('active'));
+                
+                // 2. Le ponemos "active" solo al que tocamos
+                btn.classList.add('active');
+
+                // 3. Capturamos los datos del botón tocado
+                const newPrice = btn.getAttribute('data-price');
+                const newSize = btn.getAttribute('data-size');
+
+                // 4. Actualizamos el precio que ve el cliente (le agregamos el punto de los miles)
+                const formattedPrice = newPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                priceDisplay.textContent = "$" + formattedPrice;
+
+                // 5. Actualizamos los datos invisibles para el Carrito
+                buyButton.setAttribute('data-price', newPrice);
+                buyButton.setAttribute('data-name', `${baseTitle} - ${newSize}`);
+                });
+        });
+        });
+        });
+
     // Inicializar el renderizado del carrito por primera vez
     renderCart();
-});
+
+
+
+

@@ -736,6 +736,20 @@ html {
         
     
     }
+    /* AJUSTES DEL SELECTOR DE TAMAÑO PARA CELULARES */
+    .size-selector {
+        gap: 0.3rem; /* Achicamos la separación entre los botones */
+        margin-bottom: 0.6rem; 
+        width: 100%; /* Asegura que ocupen todo el ancho disponible de la tarjeta */
+    }
+
+    .size-btn {
+        flex: 1; /* Magia pura: divide el espacio 50 y 50 exacto */
+        font-size: 0.75rem; /* Misma letra compacta que tu descripción */
+        padding: 0.35rem 0; /* Relleno vertical para que sea cómodo tocar, sin relleno horizontal extra */
+        text-align: center;
+        letter-spacing: -0.2px; /* Aprieta apenitas las letras para que no se caigan de renglón en pantallas muy chicas */
+    }
 }
 
 
@@ -974,4 +988,29 @@ html {
 .btn-checkout:hover {
     background-color: #1ebd59;
     transform: translateY(-2px);
+}
+
+/* Estilos para el selector de tamaño */
+.size-selector {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.size-btn {
+    background-color: transparent;
+    color: var(--verde-logo);
+    border: 1px solid var(--verde-logo);
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+/* El botón que está seleccionado */
+.size-btn.active {
+    background-color: var(--verde-logo);
+    color: var(--bg-crema);
 }
